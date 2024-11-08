@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello, World!</title>
+</head>
+
+<body>
+    <div id="div1" style="padding: 50px; border: 1px solid blue; color: black">
+        Div 1
+        <div id="div2" style="padding: 50px; border: 1px solid red; color: black">
+            Div 2
+            <button id="button1">Click Me</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('div1').addEventListener('click', (event) => {
+            console.log('Div 1 clicked');
+        });
+        document.getElementById('div2').addEventListener('click', (event) => {
+            console.log('Div 2 clicked');
+        });
+        document.getElementById('button1').addEventListener('click', (event) => {
+            console.log('Button clicked');
+            // To stop the event from bubbling up
+            event.stopPropagation();
+        });
+    </script>
+</body>
