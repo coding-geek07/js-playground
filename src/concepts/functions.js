@@ -1,3 +1,18 @@
+// Function Statements aka Function Declarations
+function a() { }
+// Function Expressions
+var x = function () { }
+// Anonymous Functions
+// function () { }
+// Named Function Expressions
+var z = function xy() { }
+// First Class functions
+var one = function () { }
+function callMeWithFunctionArg(param) {
+    param();
+}
+callMeWithFunctionArg(one);
+
 function x() {
     console.log('Invoked function without args');
 }

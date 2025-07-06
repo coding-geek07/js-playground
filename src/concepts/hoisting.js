@@ -26,6 +26,11 @@
 //     console.log('inside function ' + str);
 
 // }
-console.log(str);
-let str = 'ram';
+// console.log(str);
+// let str = 'ram';
+
+console.log(a);
+console.log(b);
+let a;
+var b;
 

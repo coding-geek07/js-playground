@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    <title>Hello, World!</title>
+    <title>Event Propogation!</title>
 </head>
 
 <body>
@@ -18,16 +18,32 @@
     </div>
     <script>
         document.getElementById('div1').addEventListener('click', (event) => {
-            console.log('Div 1 clicked');
+            event.stopImmediatePropagation();
+            alert('Parent 1 clicked');
+        }, true);
+        document.getElementById('div1').addEventListener('click', (event) => {
+            alert('Parent 1 clicked second time');
         }, true);
         document.getElementById('div2').addEventListener('click', (event) => {
-            console.log('Div 2 clicked');
-        }, true);
+            alert('Parent 2 clicked');
+        });
         document.getElementById('button1').addEventListener('click', (event) => {
-            console.log('Button clicked');
-            // To stop the event from bubbling up
-            // event.stopPropagation();
+            alert('Target: Button clicked');
         }, true);
+
+        /*
+        Key Differences
+        Default Action:
+        preventDefault() prevents default actions. stopPropagation() and stopImmediatePropagation() do not.
+        Event Propagation.
+        stopPropagation() stops event propagation to parent or child elements. stopImmediatePropagation() also stops propagation and prevents other listeners on the same element from being called.
+        Listeners on the Same Element.
+        stopPropagation() does not prevent other listeners on the same element from executing. stopImmediatePropagation() does.
+        Use Cases:
+        preventDefault(): Preventing form submissions, link navigations, or other default actions.
+        stopPropagation(): Preventing parent elements from handling events triggered on a child element. 
+        stopImmediatePropagation(): Preventing other listeners on the same element from being called after a specific listener has been triggered. 
+        */
     </script>
 </body>
 
